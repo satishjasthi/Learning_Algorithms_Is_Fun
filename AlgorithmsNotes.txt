@@ -1,84 +1,44 @@
-SOURCE: ALGORITHMS PART1, COURSERA
+Efficiency in case of algorithms: is something which deals with the time and space/memory that a problems consumes to be solved.the lesser the time and memory consumption, higher the efficiency of the algorithm 
 
-Steps to developing a usable aalgorithm:
-1. Model the problem: understand the problem clearly
-2. Find an alorithm to solve it 
-3. Check whether it is fast enough and fits in your memory limit
-4. If not figure out the reasons why it is slow or consumes a lot of memory
-5.Find a way to address the problem
-6. Iterate it until you are satisfied
+We can define the efficiency of the code using big O notation: O(n)
+usually in O(n): n will an algebraic equation, which is a function of n
+like,
+O(log(n)), O(n**3) etc 
 
+and O(1) = O(On + 1)
 
-Union-Find: Dynamic connectivity
-================================
-Problem: given a set of N objects
-*Union command: connects two objects
-*Find/connected query: is there a path connecting the two objects?
+SO what is n?
+n represents the length of the input 
 
-See IMAGE DC1
+Consider a sudo code to decode a message
 
-so we need to develop an algorithm that can solve this for larger values of n.
+function decode(input):
+	create output string ----1
+	for each letter in input ---2
+		get new_letter from letter in cipher -----3
+		add new_letter to output ------4
+	return output -----5
+so the line 1 and 5 runs only 1 time, so they add upto 2 units
+but for loop runs for each letter of input,so it runs for 3n units,since we need to run 2 lines within forloop and the forloop statement itself for every iteration
 
-SEE IMAGE DC2,3
+therefore the order of n is O(2n + 2)
 
-the problem we are solving is to just find whether there is a connect between 2 given points, Yes or No. We are not going to find the actual path
+so if n = 10
+O(2n+2) = 22
 
-Some applications of this algo:
-*Pixels in a digital photo
-*Computers in a network
-*Freinds in a social network
-*Transistors in a computer chip
-*Elements in a mathematical set
+let's see how the type of data structure affects the O(n),
+if we are using lists for cipher in the sudo code then the program has to go through all 26 alphabets to find their replacing letter for each iteration, So O(n) will be something like
 
-Modelling the connections:
-We assume that "is connected to" is an equivalence relation:
-reflexive: p is connected to p
-symmetric : if p is connected to q, then q is connected to p
-Transitive: if p is connected to q and q is connected to r , then p is connected to r
+here we are considering the program will go through all 26 letters for each iteration because we are consdering the worst case to find the upper bound of time take by the program to execute.
 
-connected components: is the maximal set of objects that are mutually connected
+However in case of average case we'll considering 13 instead of 26 since the progam might sometimes go searching above 13 or sometimes below 13 which makes an average of 13.
 
-SEE IMAGE DC4
+In case of best case we consider that the algorithm will find the letter at first attempt itself ie the letter it is searching for is 'A'.
 
-Implementing the operations:
-
-Find query: check if two objects are in same component
-
-Union command: of two components replaces them with a single component with their union as shown below
-
-See IMAGE DC5
+But while mentioning in interviews we have to explicitly mention which case we are taking about.
 
 
+O((3 + 26 )n + n)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Ex: if n = 10 ,O(n) = 292
+if n = 1 million ,O(n) = ~29 , that shows how data structures affect the O(n)
