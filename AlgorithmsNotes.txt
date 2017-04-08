@@ -1,84 +1,37 @@
-SOURCE: ALGORITHMS PART1, COURSERA
 
-Steps to developing a usable aalgorithm:
-1. Model the problem: understand the problem clearly
-2. Find an alorithm to solve it 
-3. Check whether it is fast enough and fits in your memory limit
-4. If not figure out the reasons why it is slow or consumes a lot of memory
-5.Find a way to address the problem
-6. Iterate it until you are satisfied
+Consider a conventional multiplication problem. Let's find the number of premitive operations like addtion or multiplication required to find the product of two numbers as a function of number of digits in given number.
 
+Consider 1234 x 5678
+	       7433 -------carry 	
+		5678
+	       x1234
+	--------------
+	       22712  this line requires <= 2*4 operations(S1)
+	      17034
+	     11356
+	     5678
+        -----------------
+	     7006652 	
+(1) includes both addition(resulting from carry) and multiplication.here 4 is mult with 4 numbers for mult operations and 4 addition operations from carry so it summs upto at most 2*4 = 2n.
+where n is the number of digits in given number
 
-Union-Find: Dynamic connectivity
-================================
-Problem: given a set of N objects
-*Union command: connects two objects
-*Find/connected query: is there a path connecting the two objects?
+So total # of operations = 2n*n = 2n**2, since the operation 2n needs to be carried out 4 times.
 
-See IMAGE DC1
+KaratsubaMultiplication algorithm:
+Take to numbers: x = 5678,y=1234
 
-so we need to develop an algorithm that can solve this for larger values of n.
+let's define 4 numbers 
+a = 56
+b = 78
+c = 12
+d = 34
 
-SEE IMAGE DC2,3
+Step1:compute ac = 672
+Step2:compute bd = 2652
+Step3: (a + b)(c + d) = 6164
+Step4: 3 -2 - 1 = 2840
+Step5:
 
-the problem we are solving is to just find whether there is a connect between 2 given points, Yes or No. We are not going to find the actual path
-
-Some applications of this algo:
-*Pixels in a digital photo
-*Computers in a network
-*Freinds in a social network
-*Transistors in a computer chip
-*Elements in a mathematical set
-
-Modelling the connections:
-We assume that "is connected to" is an equivalence relation:
-reflexive: p is connected to p
-symmetric : if p is connected to q, then q is connected to p
-Transitive: if p is connected to q and q is connected to r , then p is connected to r
-
-connected components: is the maximal set of objects that are mutually connected
-
-SEE IMAGE DC4
-
-Implementing the operations:
-
-Find query: check if two objects are in same component
-
-Union command: of two components replaces them with a single component with their union as shown below
-
-See IMAGE DC5
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+5678*1234 = ac*10**4 + step4*10**(4/2) + bd = 70066522
 
 
