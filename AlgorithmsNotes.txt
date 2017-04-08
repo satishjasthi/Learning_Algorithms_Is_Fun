@@ -1,52 +1,32 @@
-SOURCE: ALGORITHMS PART1, COURSERA
+Source: mycodeschool Yotube
 
-Steps to developing a usable aalgorithm:
-1. Model the problem: understand the problem clearly
-2. Find an alorithm to solve it 
-3. Check whether it is fast enough and fits in your memory limit
-4. If not figure out the reasons why it is slow or consumes a lot of memory
-5.Find a way to address the problem
-6. Iterate it until you are satisfied
+Data structures: a data structure is a way to store and organize data in a computer, so that it can be used efficiently.
 
+Even with the most sophisticated computers and softwares if we don't supply them with the appropriate data types we can hamper their efficiency
 
-Union-Find: Dynamic connectivity
-================================
-Problem: given a set of N objects
-*Union command: connects two objects
-*Find/connected query: is there a path connecting the two objects?
+We can talk about data-structures in 2 ways:
 
-See IMAGE DC1
+1. Mathematical/logical models/abstract data types: here we are not bothered about the implementation of the idea for example consider the abstract model of real TV
 
-so we need to develop an algorithm that can solve this for larger values of n.
+Abstract model of TV
+-Can be turned on/off
+-Can recieve signals from satellite
+-Can offer audio/video outputs
 
-SEE IMAGE DC2,3
+so here we are not bothered about the physical details we looking at the concept of TV in a abstract, which inculed the features that an abstract object posses
 
-the problem we are solving is to just find whether there is a connect between 2 given points, Yes or No. We are not going to find the actual path
+So abstract data types/structures (ADTs) : define data and operations but there will be no implementation
 
-Some applications of this algo:
-*Pixels in a digital photo
-*Computers in a network
-*Freinds in a social network
-*Transistors in a computer chip
-*Elements in a mathematical set
+Consider example from coding
 
-Modelling the connections:
-We assume that "is connected to" is an equivalence relation:
-reflexive: p is connected to p
-symmetric : if p is connected to q, then q is connected to p
-Transitive: if p is connected to q and q is connected to r , then p is connected to r
+List is an example of abstract data type and its features are:
+-store a given number of elements of any type
+-read elements by position
+-modify elements at a position
 
-connected components: is the maximal set of objects that are mutually connected
+So the 2 of data-structures is Implementation
 
-SEE IMAGE DC4
-
-Implementing the operations:
-
-Find query: check if two objects are in same component
-
-Union command: of two components replaces them with a single component with their union as shown below
-
-See IMAGE DC5
+2.Implementation: Arrays are the concrete implementation of the abstract idea Lists
 
 
 
