@@ -1,6 +1,7 @@
 def karatsubaMultiplication(n1,n2):
 	'''Function to compute the multiplication of 2 integers using karatsuba multiplication algorithm 
-	n1 & n2 are integers with even number of digits'''
+	n1 & n2 are integers with even number of digits
+	Currently its working only for 2 numbers with even and same number of digits '''
 
 	number_of_digits = (len(str(n1)),len(str(n2)))
 	numbers = (n1,n2)
@@ -39,4 +40,4 @@ def karatsubaMultiplication(n1,n2):
 
 	return answer
  
-print karatsubaMultiplication(56789,1234)
+print karatsubaMultiplication(5678,1234)
